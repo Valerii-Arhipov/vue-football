@@ -1,16 +1,15 @@
 <template>
-  <div>
+  <v-app-bar fixed>
     <v-tabs
       background-color="purple darken-2"
       color="white"
-      height="60"
-      :centered="true"
+      centered
     >
       <v-tab>
         Matches
       </v-tab>
     </v-tabs>
-  </div>
+  </v-app-bar>
 </template>
 
 <script>

@@ -1,51 +1,37 @@
 <template>
   <div>
-    <v-expansion-panels>
-      <v-expansion-panel v-for="(matches, index) in matchdayMatches" :key="`${index}`">
-        <v-expansion-panel-header>{{ index + 1 }} matchday</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <v-row>
-            <v-col
-              xl="3"
-              lg="4"
-              md="6"
-              sm="6"
-              v-for="(match, index) in matches"
-              :key="`${index}`"
-            >
-              <Match :match="match"/>
-            </v-col>
-          </v-row>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
+    <v-expansion-panels
+      multiple
+      :value="[currentMatchday - 1]"
+    >
+      <Matchday
+        v-for="(matches, index) in matchdayMatches"
+        :key="index"
+        :index="index"
+        :matches="matches"
+        :isCurrentMatchday="currentMatchday - 1 === index"
+      />
     </v-expansion-panels>
   </div>
 </template>
 
 <script>
-  import { actionsType } from "@/store/actions";
-  import Match from "@/components/Match";
+  import Matchday from "@/components/Matchday";
 
   export default {
     name: "Matches",
-    components: {
-      Match
+    data() {
+      return {a:1}
     },
-    mounted() {
-      this.$store.dispatch(
-        {
-          type: actionsType.GET_MATCHES,
-        }
-      );
-      this.$store.dispatch(
-        {
-          type: actionsType.GET_TEAMS,
-        }
-      );
+    components: {
+      Matchday,
     },
     computed: {
       matchdayMatches() {
         return this.$store.getters.matchdayMatches;
+      },
+      currentMatchday() {
+        return this.$store.getters.currentMatchday;
       },
     }
   }

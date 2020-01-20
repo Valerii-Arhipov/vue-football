@@ -12,7 +12,12 @@
             />
           </v-col>
           <v-col cols="9">
+            <span
+              class="team-name"
+              :title="homeTeam.name"
+            >
               {{ homeTeam.name }}
+            </span>
           </v-col>
           <v-col cols="1">
             {{ match.score.fullTime.homeTeam }}
@@ -28,21 +33,46 @@
             />
           </v-col>
           <v-col cols="9">
-            {{ awayTeam.name }}
+            <span
+              class="team-name"
+              :title="awayTeam.name"
+            >
+              {{ awayTeam.name }}
+            </span>
           </v-col>
           <v-col cols="1">
             {{ match.score.fullTime.awayTeam }}
           </v-col>
         </v-row>
       </v-col>
+      <v-col
+        cols="3"
+        align-self="center"
+        align="center"
+      >
+        <div>
+          {{ data }}
+        </div>
+        <div>
+          {{ time }}
+        </div>
+      </v-col>
     </v-row>
   </v-card>
 </template>
 
 <script>
+  import moment from 'moment';
+
   export default {
     name: "Match",
     props: ['match'],
+    data() {
+      return {
+        data: moment(this.match.utcDate).format('DD.MM.YY'),
+        time: moment(this.match.utcDate).format('HH:MM'),
+      }
+    },
     computed: {
       homeTeam() {
         return this.$store.getters.teamById(this.match.homeTeam.id);
@@ -55,5 +85,9 @@
 </script>
 
 <style scoped>
-
+  .team-name {
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
 </style>
