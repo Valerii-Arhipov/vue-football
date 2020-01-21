@@ -4,9 +4,13 @@
       background-color="purple darken-2"
       color="white"
       centered
+      optional
     >
-      <v-tab>
+      <v-tab to="/matches">
         Matches
+      </v-tab>
+      <v-tab to="/standing">
+        Standings
       </v-tab>
     </v-tabs>
   </v-app-bar>

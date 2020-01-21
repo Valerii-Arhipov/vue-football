@@ -11,11 +11,11 @@
               :contain="true"
             />
           </v-col>
-          <v-col cols="9">
-            <span
-              class="team-name"
-              :title="homeTeam.name"
-            >
+          <v-col
+            cols="9"
+            class="team-name"
+          >
+            <span :title="homeTeam.name">
               {{ homeTeam.name }}
             </span>
           </v-col>
@@ -32,7 +32,10 @@
               :contain="true"
             />
           </v-col>
-          <v-col cols="9">
+          <v-col
+            cols="9"
+            class="team-name"
+          >
             <span
               class="team-name"
               :title="awayTeam.name"
@@ -87,7 +90,7 @@
 <style scoped>
   .team-name {
     overflow: hidden;
-    text-overflow: clip;
+    text-overflow: ellipsis;
     white-space: nowrap;
   }
 </style>

@@ -11,6 +11,7 @@ const store = new Vuex.Store({
   state: {
     matches: [],
     teams: [],
+    standings: [],
   },
   mutations,
   actions,

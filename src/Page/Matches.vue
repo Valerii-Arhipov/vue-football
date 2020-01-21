@@ -16,23 +16,20 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
+
   import Matchday from "@/components/Matchday";
 
   export default {
     name: "Matches",
-    data() {
-      return {a:1}
-    },
     components: {
       Matchday,
     },
     computed: {
-      matchdayMatches() {
-        return this.$store.getters.matchdayMatches;
-      },
-      currentMatchday() {
-        return this.$store.getters.currentMatchday;
-      },
+      ...mapGetters([
+        'matchdayMatches',
+        'currentMatchday'
+      ]),
     }
   }
 </script>
