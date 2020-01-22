@@ -26,5 +26,7 @@
 </script>
 
 <style scoped>
-
+  .v-tab {
+    color: white !important;
+  }
 </style>

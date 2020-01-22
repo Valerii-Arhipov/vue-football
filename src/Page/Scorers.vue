@@ -3,7 +3,7 @@
     <thead>
       <th>team</th>
       <th>name</th>
-      <th>number of Goal</th>
+      <th class="number-of-goal">number of Goal</th>
     </thead>
     <tbody>
       <tr v-for="player in scorers" :key="player.player.id">
@@ -23,7 +23,7 @@
           </v-row>
         </td>
         <td>{{ player.player.name }} {{ player.player.shirtNumber }}</td>
-        <td>{{ player.numberOfGoals }}</td>
+        <td class="number-of-goal">{{ player.numberOfGoals }}</td>
       </tr>
     </tbody>
   </v-simple-table>
@@ -53,5 +53,7 @@
 </script>
 
 <style scoped>
-
+  .number-of-goal {
+    text-align: center !important;
+  }
 </style>

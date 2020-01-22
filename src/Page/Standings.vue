@@ -61,5 +61,8 @@
 </script>
 
 <style scoped>
-
+  tr > td:nth-child(n + 4),
+  th:nth-child(n + 4) {
+    text-align: center;
+  }
 </style>
