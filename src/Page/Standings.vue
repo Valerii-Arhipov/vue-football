@@ -37,6 +37,22 @@
         </tr>
       </tbody>
     </v-simple-table>
+    <v-card>
+      <v-list color="#eeeeee">
+        <v-list-item class="CL">
+          <div class="square"></div>
+          Champions League (group stage)
+        </v-list-item>
+        <v-list-item class="EL">
+          <div class="square"></div>
+          Europa League (group stage)
+        </v-list-item>
+        <v-list-item class="knockout">
+          <div class="square"></div>
+          knockout
+        </v-list-item>
+      </v-list>
+    </v-card>
   </div>
 </template>
 
@@ -64,5 +80,36 @@
   tr > td:nth-child(n + 4),
   th:nth-child(n + 4) {
     text-align: center;
+  }
+
+  tr:not(:nth-child(n + 5)) > :first-child {
+    border-left: #001bff solid;
+  }
+
+  tr:nth-child(5) > :first-child {
+    border-left: #ff7d00 solid;
+  }
+
+  tr:nth-child(n + 18) > :first-child {
+    border-left: #ff1b00 solid;
+  }
+
+  .square {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .CL > .square {
+    background: #001bff;
+  }
+
+  .EL > .square {
+    background: #ff7d00;
+  }
+
+  .knockout > .square {
+    background: #ff1b00;
   }
 </style>
