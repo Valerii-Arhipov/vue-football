@@ -12,6 +12,9 @@
       <v-tab to="/standing">
         Standings
       </v-tab>
+      <v-tab to="/scorers">
+        Scorers
+      </v-tab>
     </v-tabs>
   </v-app-bar>
 </template>

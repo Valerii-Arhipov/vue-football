@@ -19,11 +19,19 @@
   import { mapGetters } from 'vuex';
 
   import Matchday from "@/components/Matchday";
+  import { actionsType } from "@/store/actions";
 
   export default {
     name: "Matches",
     components: {
       Matchday,
+    },
+    mounted() {
+      this.$store.dispatch(
+        {
+          type: actionsType.GET_MATCHES,
+        }
+      );
     },
     computed: {
       ...mapGetters([

@@ -3,11 +3,13 @@ import VueRouter from 'vue-router';
 
 import Matches from "@/Page/Matches";
 import Standings from "@/Page/Standings";
+import Scorers from "@/Page/Scorers";
 
 const routes = [
   { path: '/', redirect: '/matches' },
   { path: '/matches', component: Matches },
   { path: '/standing', component:  Standings},
+  { path: '/scorers', component:  Scorers},
 ];
 
 Vue.use(VueRouter);

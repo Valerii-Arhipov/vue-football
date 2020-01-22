@@ -74,7 +74,7 @@
       return {
         data: moment(this.match.utcDate).format('DD.MM.YY'),
         time: moment(this.match.utcDate).format('HH:MM'),
-      }
+      };
     },
     computed: {
       homeTeam() {
@@ -82,8 +82,8 @@
       },
       awayTeam() {
         return this.$store.getters.teamById(this.match.awayTeam.id);
-      }
-    }
+      },
+    },
   }
 </script>
 

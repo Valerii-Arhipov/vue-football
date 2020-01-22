@@ -22,11 +22,6 @@ export default {
   mounted() {
     this.$store.dispatch(
       {
-        type: actionsType.GET_MATCHES,
-      }
-    );
-    this.$store.dispatch(
-      {
         type: actionsType.GET_TEAMS,
       }
     );

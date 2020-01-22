@@ -6,6 +6,7 @@ const actionsType = {
   GET_MATCHES: 'GET_MATCHES',
   GET_TEAMS: 'GET_TEAMS',
   GET_STANDINGS: 'GET_STANDINGS',
+  GET_SCORERS: 'GET_SCORERS',
 };
 
 const headers = { 'X-Auth-Token': 'b35ef81a719b48359041d148ec8f37c1' };
@@ -34,6 +35,15 @@ const actions = {
       .then(response => {
         context.commit({
           type: mutationsType.UPDATE_STANDINGS,
+          payload: response.data,
+        });
+      });
+  },
+  [actionsType.GET_SCORERS](context) {
+    axios.get('https://api.football-data.org/v2/competitions/PL/scorers?limit=20', { headers })
+      .then(response => {
+        context.commit({
+          type: mutationsType.UPDATE_SCORERS,
           payload: response.data,
         });
       });

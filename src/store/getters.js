@@ -11,6 +11,7 @@ const getters = {
     return state.matches.matches && state.matches.matches[0].season.currentMatchday;
   },
   teamStandings: state => (state.standings.standings ? state.standings.standings[0].table : []),
+  scorers: state => state.scorers.scorers || [],
 };
 
 export default getters;
