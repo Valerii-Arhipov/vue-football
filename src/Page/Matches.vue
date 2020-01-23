@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <Spiner v-if="loading"/>
+  <div v-else>
     <v-expansion-panels
       multiple
       :value="[currentMatchday - 1]"
@@ -16,15 +17,17 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
+  import { mapGetters, mapState } from 'vuex';
 
   import Matchday from "@/components/Matchday";
   import { actionsType } from "@/store/actions";
+  import Spiner from "@/components/Spiner";
 
   export default {
     name: "Matches",
     components: {
       Matchday,
+      Spiner,
     },
     mounted() {
       this.$store.dispatch(
@@ -38,6 +41,9 @@
         'matchdayMatches',
         'currentMatchday'
       ]),
+      ...mapState({
+        loading: state => state.loading.matches,
+      }),
     }
   }
 </script>

@@ -13,6 +13,12 @@ const store = new Vuex.Store({
     teams: [],
     standings: [],
     scorers: [],
+    loading: {
+      matches: true,
+      scorers: true,
+      standings: true,
+    },
+    error: false,
   },
   mutations,
   actions,

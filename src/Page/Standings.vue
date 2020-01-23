@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <Spiner v-if="loading"/>
+  <div v-else>
     <v-simple-table>
       <thead>
         <th/>
@@ -57,9 +58,10 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
+  import {mapGetters, mapState} from 'vuex';
 
   import { actionsType } from "@/store/actions";
+  import Spiner from "@/components/Spiner";
 
   export default {
     name: "Standings",
@@ -70,8 +72,14 @@
         }
       );
     },
+    components: {
+      Spiner
+    },
     computed: {
       ...mapGetters(['teamStandings']),
+      ...mapState({
+        loading: state => state.loading.standings,
+      }),
     },
   }
 </script>

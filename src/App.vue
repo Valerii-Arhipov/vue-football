@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <ErorrMessage/>
     <Tabs/>
     <div style="padding-top: 60px">
       <v-container>
@@ -12,12 +13,14 @@
 <script>
 import Tabs from "@/components/Tabs";
 import {actionsType} from "@/store/actions";
+import ErorrMessage from "@/components/ErorrMessage";
 
 export default {
   name: 'App',
 
   components: {
     Tabs,
+    ErorrMessage,
   },
   mounted() {
     this.$store.dispatch(

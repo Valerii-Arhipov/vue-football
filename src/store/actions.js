@@ -19,7 +19,10 @@ const actions = {
           type: mutationsType.UPDATE_MATCHES,
           payload: response.data,
         });
-    });
+      })
+      .catch(() => {
+        context.commit(mutationsType.ERROR);
+      });
   },
   [actionsType.GET_TEAMS](context) {
     axios.get('https://api.football-data.org/v2/competitions/PL/teams', { headers })
@@ -28,6 +31,9 @@ const actions = {
           type: mutationsType.UPDATE_TEAMS,
           payload: response.data,
         });
+      })
+      .catch(() => {
+        context.commit(mutationsType.ERROR);
       });
   },
   [actionsType.GET_STANDINGS](context) {
@@ -37,6 +43,9 @@ const actions = {
           type: mutationsType.UPDATE_STANDINGS,
           payload: response.data,
         });
+      })
+      .catch(() => {
+        context.commit(mutationsType.ERROR);
       });
   },
   [actionsType.GET_SCORERS](context) {
@@ -46,6 +55,9 @@ const actions = {
           type: mutationsType.UPDATE_SCORERS,
           payload: response.data,
         });
+      })
+      .catch(() => {
+        context.commit(mutationsType.ERROR);
       });
   },
 };
