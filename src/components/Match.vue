@@ -1,66 +1,68 @@
 <template>
   <v-card>
-    <v-row :dense="true">
-      <v-col cols="9">
-        <v-row :dense="true">
-          <v-col cols="2">
-            <v-img
-              :src="homeTeam.crestUrl"
-              width="30"
-              height="30"
-              :contain="true"
-            />
-          </v-col>
-          <v-col
-            cols="9"
-            class="team-name"
-          >
-            <span :title="homeTeam.name">
-              {{ homeTeam.name }}
-            </span>
-          </v-col>
-          <v-col cols="1">
-            {{ match.score.fullTime.homeTeam }}
-          </v-col>
-        </v-row>
-        <v-row :dense="true">
-          <v-col cols="2">
-            <v-img
-              :src="awayTeam.crestUrl"
-              width="30"
-              height="30"
-              :contain="true"
-            />
-          </v-col>
-          <v-col
-            cols="9"
-            class="team-name"
-          >
-            <span
+    <v-container>
+      <v-row :dense="true">
+        <v-col cols="9">
+          <v-row :dense="true">
+            <v-col cols="2">
+              <v-img
+                :src="homeTeam.crestUrl"
+                width="30"
+                height="30"
+                :contain="true"
+              />
+            </v-col>
+            <v-col
+              cols="9"
               class="team-name"
-              :title="awayTeam.name"
             >
-              {{ awayTeam.name }}
-            </span>
-          </v-col>
-          <v-col cols="1">
-            {{ match.score.fullTime.awayTeam }}
-          </v-col>
-        </v-row>
-      </v-col>
-      <v-col
-        cols="3"
-        align-self="center"
-        align="center"
-      >
-        <div>
-          {{ data }}
-        </div>
-        <div>
-          {{ time }}
-        </div>
-      </v-col>
-    </v-row>
+              <span :title="homeTeam.name">
+                {{ homeTeam.name }}
+              </span>
+            </v-col>
+            <v-col cols="1">
+              <h4>{{ match.score.fullTime.homeTeam }}</h4>
+            </v-col>
+          </v-row>
+          <v-row :dense="true">
+            <v-col cols="2">
+              <v-img
+                :src="awayTeam.crestUrl"
+                width="30"
+                height="30"
+                :contain="true"
+              />
+            </v-col>
+            <v-col
+              cols="9"
+              class="team-name"
+            >
+              <span
+                class="team-name"
+                :title="awayTeam.name"
+              >
+                {{ awayTeam.name }}
+              </span>
+            </v-col>
+            <v-col cols="1">
+              <h4>{{ match.score.fullTime.awayTeam }}</h4>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col
+          cols="3"
+          align-self="center"
+          align="center"
+        >
+          <div>
+            {{ data }}
+          </div>
+          <div>
+            {{ time }}
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-card>
 </template>
 
